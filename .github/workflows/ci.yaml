@@ -1,8 +1,8 @@
 name: Node.js CI
 
-on:
-  permissions:
+permissions:
     contents: read
+on:
   push:
     branches:
       - main
