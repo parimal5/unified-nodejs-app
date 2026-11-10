@@ -4,9 +4,19 @@ on:
   push:
     branches:
       - main
+    paths:
+    - 'server.js'
+    - 'server.test.js'
+    - 'package.json'
+    - 'package-lock.json'
   pull_request:
     branches:
       - main
+    paths:
+    - 'server.js'
+    - 'server.test.js'
+    - 'package.json'
+    - 'package-lock.json'
 
 jobs:
   build:
@@ -26,3 +36,4 @@ jobs:
 
       - name: Run tests
         run: npm test
+      
