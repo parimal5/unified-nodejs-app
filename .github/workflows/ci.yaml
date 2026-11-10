@@ -61,5 +61,5 @@ jobs:
       - name: Generate application version
         id: version
         run: echo "app_version=1.0.0" >> "$GITHUB_OUTPUT"
-  outputs:
-    app_version: ${{ steps.version.outputs.app_version }}      
+    outputs:
+      app_version: ${{ steps.version.outputs.app_version }}      
