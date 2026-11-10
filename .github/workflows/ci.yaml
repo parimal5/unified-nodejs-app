@@ -82,8 +82,10 @@ jobs:
         with:
           name: nodejs-build
           path: .
-          
+
       - name: Print Output
-        run: cat dist/app.txt
+        run: |
+          ls -A
+          cat dist/app.txt
 
 
