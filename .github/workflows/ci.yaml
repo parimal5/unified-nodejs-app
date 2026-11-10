@@ -100,6 +100,14 @@ jobs:
 
       - name: App Version
         run: echo "${{ needs.repository-check.outputs.app_version }}"
+
+      - name: Inspect application configuration
+        env:
+          APP_ENVIRONMENT: ${{ vars.APP_ENVIRONMENT }}
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+        run: |
+          echo "Environment: $APP_ENVIRONMENT"
+          echo "API key is configured: $([ -n "$DEMO_API_KEY" ] && echo yes || echo no)"
       
       # - name: Download Artifact
       #   uses: actions/download-artifact@v4
