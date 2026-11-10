@@ -21,7 +21,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      NODE_ENV: test
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,4 +37,8 @@ jobs:
 
       - name: Run tests
         run: npm test
+      
+      - name: Inspect environment
+        run: |
+          echo $NODE_ENV
       
