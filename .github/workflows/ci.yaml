@@ -42,7 +42,7 @@ jobs:
         run: |
           echo $NODE_ENV
       - name: Need Step Print
-        reun: "echo ${{need.repository-check.output.app_version}}"
+        run: "echo ${{need.repository-check.output.app_version}}"
         
     needs: repository-check
   repository-check:
