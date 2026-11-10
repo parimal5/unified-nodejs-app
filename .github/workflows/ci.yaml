@@ -80,8 +80,9 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-        - name: nodejs-build
+          name: nodejs-build
           path: .
+          
       - name: Print Output
         run: cat dist/app.txt
 
