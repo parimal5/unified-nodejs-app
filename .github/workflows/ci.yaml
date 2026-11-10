@@ -29,6 +29,7 @@ jobs:
       
       - name: Inspect PR context
         run: |
+          echo "After Keeping the PR open"
           echo "Event: ${{ github.event_name }}"
           echo "Action: ${{ github.event.action }}"
           echo "PR Number: ${{ github.event.pull_request.number }}"
