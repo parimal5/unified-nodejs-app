@@ -41,6 +41,7 @@ jobs:
       - name: Inspect environment
         run: |
           echo $NODE_ENV
+    needs: repository-check
   repository-check:
     runs-on: ubuntu-latest
 
