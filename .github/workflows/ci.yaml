@@ -64,11 +64,22 @@ jobs:
         with:
           node-version: 24
 
-      # - name: Install dependencies
-      #   run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      # - name: Run tests
-      #   run: npm test
+      - name: Run tests
+        run: npm test
+      
+      - name: Simulate test failure
+        run: exit 1
+      
+      - name: Final diagnostic
+        if: always()
+        run: echo "Final diagnostic executed"
+
+      - name: Failure notification
+        if: failure()
+        run: echo "The build encountered a failure!"
       
       - name: Inspect environment
         run: |
