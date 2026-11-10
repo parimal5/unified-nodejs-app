@@ -41,8 +41,9 @@ jobs:
       - name: Inspect environment
         run: |
           echo $NODE_ENV
+
       - name: Need Step Print
-        run: "echo ${{needs.repository-check.output.app_version}}"
+        run: "echo ${{ needs.repository-check.output.app_version }}"
         
     needs: repository-check
   repository-check:
