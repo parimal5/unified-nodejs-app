@@ -9,6 +9,7 @@ on:
       - 'server.test.js'
       - 'package.json'
       - 'package-lock.json'
+      - '.github/**'
   pull_request:
     branches:
       - main
@@ -17,6 +18,7 @@ on:
       - 'server.test.js'
       - 'package.json'
       - 'package-lock.json'
+      - '.github/**'
 
 jobs:
   repository-check:
@@ -36,6 +38,17 @@ jobs:
       - name: Generate application version
         id: version
         run: echo "app_version=1.0.0" >> "$GITHUB_OUTPUT"
+      
+      - name: Create build package
+        run: |
+          mkdir -p dist
+          echo "Application build output" > dist/app.txt
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nodejs-build
+          path: dist/
 
   build:
     runs-on: ubuntu-latest
@@ -51,8 +64,8 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
       - name: Run tests
         run: npm test
@@ -61,5 +74,10 @@ jobs:
         run: |
           echo $NODE_ENV
 
-      - name: Need Step Print
+      - name: App Version
         run: echo "${{ needs.repository-check.outputs.app_version }}"
+      
+      - name: Build output
+        uses: actions/download-artifact@v4
+        run: |
+          echo "${{ ~/dist/app.txt }}"
