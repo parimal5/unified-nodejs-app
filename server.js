@@ -3,7 +3,7 @@ const http = require('http');
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World from Node.js App!\n');
+  res.end('Hello World from Node.js\n');
 });
 
 // Only start listening if run directly (not when imported for tests)
