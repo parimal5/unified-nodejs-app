@@ -77,7 +77,12 @@ jobs:
       - name: App Version
         run: echo "${{ needs.repository-check.outputs.app_version }}"
       
-      - name: Build output
+      - name: Download Artifact
         uses: actions/download-artifact@v4
-        run: |
-          echo "${{ ~/dist/app.txt }}"
+        with:
+        - name: nodejs-build
+          path: .
+      - name: Print Output
+        run: cat dist/app.txt
+
+
