@@ -4,9 +4,19 @@ on:
   push:
     branches:
       - main
+    paths:
+    - 'server.js'
+    - 'server.test.js'
+    - 'package.json'
+    - 'package-lock.json'
   pull_request:
     branches:
       - main
+    paths:
+    - 'server.js'
+    - 'server.test.js'
+    - 'package.json'
+    - 'package-lock.json'
 
 jobs:
   build:
@@ -27,12 +37,3 @@ jobs:
       - name: Run tests
         run: npm test
       
-      - name: Inspect PR context
-        run: |
-          echo "After Keeping the PR open"
-          echo "Event: ${{ github.event_name }}"
-          echo "Action: ${{ github.event.action }}"
-          echo "PR Number: ${{ github.event.pull_request.number }}"
-          echo "Source Branch: ${{ github.event.pull_request.head.ref }}"
-          echo "Source Commit: ${{ github.event.pull_request.head.sha }}"
-          echo "Workflow SHA: ${{ github.sha }}"
