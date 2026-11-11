@@ -3,24 +3,25 @@ name: Node.js CI
 permissions:
     contents: read
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'server.js'
-      - 'server.test.js'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/**'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'server.js'
-      - 'server.test.js'
-      - 'package.json'
-      - 'package-lock.json'
-      - '.github/**'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'server.js'
+  #     - 'server.test.js'
+  #     - 'package.json'
+  #     - 'package-lock.json'
+  #     - '.github/**'
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'server.js'
+  #     - 'server.test.js'
+  #     - 'package.json'
+  #     - 'package-lock.json'
+  #     - '.github/**'
 
 jobs:
   failure-report:
