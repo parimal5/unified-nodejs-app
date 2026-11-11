@@ -16,6 +16,6 @@ permissions:
 jobs:
   nodejs-ci:
     name: Node.js CI
-    uses: parimal5/globle-unified-pipeline/.github/workflows/nodejs-ci.yml@main
+    uses: parimal5/globle-unified-pipeline/.github/workflows/nodejs-ci.yaml@main
     with:
       node-version: '22'
