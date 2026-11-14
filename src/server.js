@@ -65,8 +65,8 @@ function createServer() {
 
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
-  createServer().listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+  createServer().listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${PORT}`);
   });
 }
 
