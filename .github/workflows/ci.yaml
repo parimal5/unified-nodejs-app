@@ -11,9 +11,10 @@ on:
       - main
 
 permissions:
-  actions: read
   contents: read
+  actions: read
   security-events: write
+  packages: write
 
 jobs:
   nodejs-ci:
